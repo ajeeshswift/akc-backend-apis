@@ -1,11 +1,11 @@
 package com.swift.akc.service;
 
-import com.swift.akc.repository.VillageRepository;
+import com.swift.akc.model.VillageModel;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public interface VillageService {
 
-  public List getVillageName();
+  public List getVillages();
 
+  public String addVillages(VillageModel villageModel);
 }

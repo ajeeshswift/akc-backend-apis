@@ -1,6 +1,8 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.model.VillageModel;
 import java.io.Serializable;
+import java.util.UUID;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -15,14 +20,16 @@ import javax.persistence.Table;
  */
 @Entity(name="Village")
 @Table(name = "villagemaster")
+@Getter
+@Setter
 public class Village extends AbstractEntity implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Basic(optional = false)
-  @Column(name = "id")
-  private Integer id;
+  @GeneratedValue(generator = "uuid2")
+  @GenericGenerator(name = "uuid2", strategy = "uuid2")
+  @Column(columnDefinition = "BINARY(16)")
+  private UUID id;
   @Basic(optional = false)
   @Column(name = "villageName")
   private String villageName;
@@ -36,73 +43,21 @@ public class Village extends AbstractEntity implements Serializable {
   public Village() {
   }
 
-  public Village(Integer id) {
+  public Village(UUID id) {
     this.id = id;
   }
 
-  public Village(Integer id, String villageName, String villageCode, short isBlocked) {
+  public Village(UUID id, String villageName, String villageCode, short isBlocked) {
     this.id = id;
     this.villageName = villageName;
     this.villageCode = villageCode;
     this.isBlocked = isBlocked;
   }
-
-  public Integer getId() {
-    return id;
+  public static Village toEntity(final VillageModel villageModel) {
+    final Village village = new Village();
+    village.setVillageName(villageModel.getVillName());
+    village.setVillageCode(villageModel.getVillCode());
+    return village;
   }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getVillageName() {
-    return villageName;
-  }
-
-  public void setVillageName(String villageName) {
-    this.villageName = villageName;
-  }
-
-  public String getVillageCode() {
-    return villageCode;
-  }
-
-  public void setVillageCode(String villageCode) {
-    this.villageCode = villageCode;
-  }
-
-  public short getIsBlocked() {
-    return isBlocked;
-  }
-
-  public void setIsBlocked(short isBlocked) {
-    this.isBlocked = isBlocked;
-  }
-
-  @Override
-  public int hashCode() {
-    int hash = 0;
-    hash += (id != null ? id.hashCode() : 0);
-    return hash;
-  }
-
-  @Override
-  public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
-    if (!(object instanceof Village)) {
-      return false;
-    }
-    Village other = (Village) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-      return false;
-    }
-    return true;
-  }
-
-  @Override
-  public String toString() {
-    return "com.mycompany.mavenproject2.Villagemaster[ id=" + id + " ]";
-  }
-
 }
 
