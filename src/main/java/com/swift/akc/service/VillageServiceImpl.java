@@ -19,9 +19,8 @@ public class VillageServiceImpl implements VillageService {
     return villageRepository.findAll();
   }
 
-  public String addVillages(VillageModel villageModel){
-    villageRepository.save(Village.toEntity(villageModel));
-
-    return "Sucess";
+  @Override
+  public Village saveOrUpdate(VillageModel villageModel){
+    return villageRepository.saveAndFlush(Village.toEntity(villageModel));
   }
 }

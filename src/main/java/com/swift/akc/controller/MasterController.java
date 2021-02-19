@@ -1,8 +1,9 @@
 package com.swift.akc.controller;
 
+import com.swift.akc.dto.ResponseListDTO;
+import com.swift.akc.entity.Village;
 import com.swift.akc.model.VillageModel;
 import com.swift.akc.service.VillageService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,14 +19,16 @@ public class MasterController {
   private final VillageService villageService;
 
   @GetMapping("/villages")
-  public List getVillages() {
-    return villageService.getVillages();
+  public ResponseListDTO getVillages() {
+    final ResponseListDTO responseListDTO = new ResponseListDTO();
+    responseListDTO.setData(Village.toDTOList(villageService.getVillages()));
+    return responseListDTO;
   }
 
-  @PostMapping("/addVillage")
-  public String addVilllage(@RequestBody VillageModel villageModel){
-    villageService.addVillages(villageModel);
-    return "You've successfully registered!";
+  @PostMapping("/villages")
+  public Village addVilllage(@RequestBody VillageModel villageModel){
+
+    return  villageService.saveOrUpdate(villageModel);
   }
 
 }
