@@ -4,4 +4,5 @@ import com.swift.akc.entity.Admin;
 
 public interface AdminRepository extends BaseJpaRepository<Admin,Integer> {
 
+    Admin findByName(String name);
 }
