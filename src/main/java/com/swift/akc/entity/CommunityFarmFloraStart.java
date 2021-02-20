@@ -1,5 +1,7 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.dto.HarvestDTO;
+import com.swift.akc.model.HarvestModel;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -33,7 +35,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
   @Column(name = "Farm_id")
   private Integer farmid;
   @Column(name = "plant_id")
-  private Short plantId;
+  private int plantId;
   @Column(name = "issue_dt")
   @Temporal(TemporalType.DATE)
   private Date issueDt;
@@ -42,12 +44,12 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
   @Column(name = "issue_size")
   private String issueSize;
   @Column(name = "euid")
-  private Short euid;
+  private int euid;
   @Column(name = "edtm")
   @Temporal(TemporalType.TIMESTAMP)
   private Date edtm;
   @Column(name = "uid")
-  private Short uid;
+  private int uid;
   @Column(name = "dtm")
   @Temporal(TemporalType.TIMESTAMP)
   private Date dtm;
@@ -66,6 +68,41 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
 
   public CommunityFarmFloraStart(Integer floraStId) {
     this.floraStId = floraStId;
+  }
+
+  public static CommunityFarmFloraStart toEntity(HarvestModel.CommunityFarmFloraStartModel harvestModel){
+       final CommunityFarmFloraStart communityFarmFloraStart = new CommunityFarmFloraStart();
+
+       communityFarmFloraStart.setFarmid(1);
+       communityFarmFloraStart.setPlantId(harvestModel.getFloraId());
+       communityFarmFloraStart.setIssueDt(harvestModel.getIssueDate());
+       communityFarmFloraStart.setIssueBy("0");
+       communityFarmFloraStart.setIssueSize(harvestModel.getSeedQuantity());
+       communityFarmFloraStart.setUid(1);
+       communityFarmFloraStart.setEntryDate(harvestModel.getEntryDate());
+       communityFarmFloraStart.setVlgid(1);
+       communityFarmFloraStart.setPlantGroupId(1);
+       communityFarmFloraStart.setProjectId(harvestModel.getProjectId());
+       return communityFarmFloraStart;
+  }
+
+  public HarvestDTO toDTO(CommunityFarmFloraHarvest communityFarmFloraHarvest){
+    HarvestDTO harvestDTO = new HarvestDTO();
+    harvestDTO.setFloraId(this.floraStId);
+    harvestDTO.setProjectId(this.projectId);
+    harvestDTO.setEntryDate(this.entryDate);
+    harvestDTO.setIssueDate(this.issueDt);
+    harvestDTO.setSeedQuantity(communityFarmFloraHarvest.getSoldQuantity());
+    harvestDTO.setHarvestDate(communityFarmFloraHarvest.getHarvestDate());
+    harvestDTO.setHarvestQuantity(communityFarmFloraHarvest.getHarvestQuantity());
+    harvestDTO.setOwnUseQuantity(communityFarmFloraHarvest.getOwnUse());
+    harvestDTO.setSoldQuantity(communityFarmFloraHarvest.getSoldQuantity());
+    harvestDTO.setSoldRate(communityFarmFloraHarvest.getSoldRate());
+    harvestDTO.setTotalIncome(communityFarmFloraHarvest.getSoldIncome());
+    harvestDTO.setWeightUnit(communityFarmFloraHarvest.getPlantSeedUnit());
+    harvestDTO.setFloraType(communityFarmFloraHarvest.getPlantSeed());
+
+  return harvestDTO;
   }
 
 }

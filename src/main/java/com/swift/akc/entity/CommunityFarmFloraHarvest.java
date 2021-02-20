@@ -1,5 +1,6 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.model.HarvestModel;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.swing.plaf.IconUIResource;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -68,4 +70,22 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
   public CommunityFarmFloraHarvest(Integer id) {
     this.id = id;
   }
+
+  public static CommunityFarmFloraHarvest toEntity(int floraId,HarvestModel.CommunityFarmFloraHarvestModel harvestModel){
+    final CommunityFarmFloraHarvest communityFarmFloraHarvest = new CommunityFarmFloraHarvest();
+    communityFarmFloraHarvest.setFloraStId(floraId);
+    communityFarmFloraHarvest.setHarvestMethod("0");
+    communityFarmFloraHarvest.setHarvestDate(harvestModel.getHarvestDate());
+    communityFarmFloraHarvest.setHarvestQuantity(harvestModel.getHarvestQuantity());
+    communityFarmFloraHarvest.setOwnUse(harvestModel.getOwnUseQuantity());
+    communityFarmFloraHarvest.setSoldQuantity(harvestModel.getSoldQuantity());
+    communityFarmFloraHarvest.setSoldRate(harvestModel.getSoldRate());
+    communityFarmFloraHarvest.setSoldIncome(harvestModel.getTotalIncome());
+    communityFarmFloraHarvest.setPlantSeed(harvestModel.getFloraType());
+    communityFarmFloraHarvest.setPlantSeedUnit(harvestModel.getFloraWeight());
+    return communityFarmFloraHarvest;
+  }
+
 }
+
+
