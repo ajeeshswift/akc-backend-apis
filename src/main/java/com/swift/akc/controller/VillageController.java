@@ -2,6 +2,7 @@ package com.swift.akc.controller;
 
 import com.swift.akc.dto.ResponseListDTO;
 import com.swift.akc.entity.Village;
+import com.swift.akc.exceptions.NotFoundException;
 import com.swift.akc.model.VillageModel;
 import com.swift.akc.service.VillageService;
 import java.util.UUID;
@@ -24,6 +25,10 @@ public class VillageController {
 
   @GetMapping("/villages")
   public ResponseListDTO getVillages() {
+    String s = null;
+    if(s == null) {
+        throw new NotFoundException("Null found");
+    }
     final ResponseListDTO responseListDTO = new ResponseListDTO();
     responseListDTO.setData(Village.toDTOList(villageService.getVillages()));
     return responseListDTO;
