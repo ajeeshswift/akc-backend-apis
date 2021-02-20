@@ -81,5 +81,15 @@ public class Village extends AbstractEntity implements Serializable {
     return villageDTOList;
    }
 
+   public void replaceWithNewValue(VillageModel villageModel) {
+    this.villageName = villageModel.getVillName();
+    this.villageCode = villageModel.getVillCode();
+
+   }
+
+   public void block() {
+    this.isBlocked = true;
+   }
+
 }
 

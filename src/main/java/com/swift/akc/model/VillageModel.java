@@ -8,5 +8,5 @@ import lombok.Setter;
 public class VillageModel {
 private String villName;
 private String villCode;
-
+private boolean isBlocked;
 }

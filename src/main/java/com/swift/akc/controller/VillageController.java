@@ -4,9 +4,13 @@ import com.swift.akc.dto.ResponseListDTO;
 import com.swift.akc.entity.Village;
 import com.swift.akc.model.VillageModel;
 import com.swift.akc.service.VillageService;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
-public class MasterController {
+public class VillageController {
 
   private final VillageService villageService;
 
@@ -26,9 +30,23 @@ public class MasterController {
   }
 
   @PostMapping("/villages")
-  public Village addVilllage(@RequestBody VillageModel villageModel){
-
+  public Village add(@RequestBody VillageModel villageModel){
     return  villageService.saveOrUpdate(villageModel);
+  }
+
+  @PutMapping("/villages/{villageId}")
+  public Village update(@PathVariable UUID villageId,@RequestBody VillageModel villageModel){
+    return villageService.update(villageId,villageModel);
+  }
+
+  @DeleteMapping("/villages/{villageId}")
+  public Village block(@PathVariable UUID villageId){
+    return villageService.block(villageId);
+  }
+
+  @DeleteMapping("/deleteVillages/{villageId}")
+  public void delete(@PathVariable UUID villagId){
+    villageService.delete(villagId);
   }
 
 }
