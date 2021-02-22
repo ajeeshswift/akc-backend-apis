@@ -3,8 +3,6 @@ package com.swift.akc.service;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
 import com.swift.akc.model.HarvestModel;
-import com.swift.akc.model.HarvestModel.CommunityFarmFloraHarvestModel;
-import com.swift.akc.model.HarvestModel.CommunityFarmFloraStartModel;
 import com.swift.akc.repository.CommunityFarmFloraHarvestRepository;
 import com.swift.akc.repository.CommunityFarmFloraStartRepository;
 import lombok.RequiredArgsConstructor;

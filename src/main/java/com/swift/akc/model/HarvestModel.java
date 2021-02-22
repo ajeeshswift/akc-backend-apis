@@ -15,6 +15,9 @@ public class HarvestModel {
   @Setter
   public static class CommunityFarmFloraStartModel {
     private int projectId;
+    private int farmId;
+    private int plantGroupId;
+    private int villageId;
     private Date entryDate;
     private int floraId;
     private Date issueDate;
