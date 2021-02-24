@@ -1,7 +1,10 @@
 package com.swift.akc.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.swift.akc.dto.FloraDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,6 +57,22 @@ public class CommunityFlora extends AbstractEntity implements Serializable {
 
   public CommunityFlora(Integer id) {
     this.id = id;
+  }
+
+  public FloraDTO getValues(){
+    FloraDTO floraDTO = new FloraDTO();
+    floraDTO.setFlora(this.flora);
+    return floraDTO;
+  }
+
+  public static Collection<FloraDTO> getFloraDet(final List<CommunityFlora> communityFloras){
+    final List<FloraDTO> communityFlorasN = new ArrayList<>();
+    for(CommunityFlora cf:communityFloras){
+      communityFlorasN.add(cf.getValues());
+    }
+
+    return  communityFlorasN;
+
   }
 
 }
