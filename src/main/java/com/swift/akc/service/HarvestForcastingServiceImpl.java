@@ -6,13 +6,20 @@ import com.swift.akc.repository.CommunityHarvestForecastingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-@RequiredArgsConstructor 
+@RequiredArgsConstructor
 public class HarvestForcastingServiceImpl implements HarvestForcastingService {
     private final CommunityHarvestForecastingRepository communityHarvestForecastingRepository;
 
     @Override
     public CommunityHarvestForecasting saveorUpdate(HarvestForcastingModel harvestForcastingModel) {
         return communityHarvestForecastingRepository.saveAndFlush(CommunityHarvestForecasting.toEntity(harvestForcastingModel));
+    }
+
+    @Override
+    public List<CommunityHarvestForecasting> getHarvestForeCasting(){
+        return communityHarvestForecastingRepository.findAll();
     }
 }
