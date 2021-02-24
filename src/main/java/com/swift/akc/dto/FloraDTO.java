@@ -7,5 +7,6 @@ import lombok.Setter;
 @Setter
 public class FloraDTO {
 
-    private String flora;
+    private int id;
+    private String floraName;
 }

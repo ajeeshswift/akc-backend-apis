@@ -59,20 +59,20 @@ public class CommunityFlora extends AbstractEntity implements Serializable {
     this.id = id;
   }
 
-  public FloraDTO getValues(){
+  public FloraDTO toDTO(){
     FloraDTO floraDTO = new FloraDTO();
-    floraDTO.setFlora(this.flora);
+    floraDTO.setId(this.id);
+    floraDTO.setFloraName(this.flora);
     return floraDTO;
   }
 
-  public static Collection<FloraDTO> getFloraDet(final List<CommunityFlora> communityFloras){
-    final List<FloraDTO> communityFlorasN = new ArrayList<>();
+
+  public static Collection<FloraDTO> toDTOList(final List<CommunityFlora> communityFloras){
+    final List<FloraDTO> communityFloraList = new ArrayList<>();
     for(CommunityFlora cf:communityFloras){
-      communityFlorasN.add(cf.getValues());
+      communityFloraList.add(cf.toDTO());
     }
-
-    return  communityFlorasN;
-
+    return  communityFloraList;
   }
 
 }
