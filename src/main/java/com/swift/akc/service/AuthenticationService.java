@@ -6,4 +6,6 @@ import com.swift.akc.model.AuthenticationModel;
 public interface AuthenticationService {
 
   Admin userValidation(AuthenticationModel authenticationModel);
+
+  String getJWTToken(String userName);
 }

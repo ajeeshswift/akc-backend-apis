@@ -16,12 +16,12 @@ public class HarvestServiceImpl implements HarvestService {
   private final CommunityFarmFloraStartRepository communityFarmFloraStartRepository;
 
   @Override
-  public CommunityFarmFloraStart save(HarvestModel.CommunityFarmFloraStartModel harvestModel) {
+  public CommunityFarmFloraStart saveDetails(HarvestModel harvestModel) {
     return communityFarmFloraStartRepository.saveAndFlush(CommunityFarmFloraStart.toEntity(harvestModel));
   }
 
   @Override
-  public CommunityFarmFloraHarvest saveRestDetails(int floraId,HarvestModel.CommunityFarmFloraHarvestModel harvestModel) {
+  public CommunityFarmFloraHarvest saveRestDetails(int floraId,HarvestModel harvestModel) {
     return communityFarmFloraHarvestRepository.saveAndFlush(CommunityFarmFloraHarvest.toEntity(floraId,harvestModel));
   }
 

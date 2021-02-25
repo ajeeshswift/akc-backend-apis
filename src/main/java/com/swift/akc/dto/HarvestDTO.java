@@ -8,17 +8,17 @@ import lombok.Setter;
 @Setter
 public class HarvestDTO {
 
-  private int projectId;
-  private Date entryDate;
-  private int floraId;
-  private Date issueDate;
-  private String seedQuantity;
+//  private int projectId;
+//  private Date entryDate;
+//  private int floraId;
+  private Date sowingDate;
+  private String sapQuantity;
   private Date harvestDate;
   private String harvestQuantity;
   private String ownUseQuantity;
   private String soldQuantity;
   private String soldRate;
   private String totalIncome;
-  private String weightUnit;
-  private String floraType;
+//  private String weightUnit;
+//  private String floraType;
 }

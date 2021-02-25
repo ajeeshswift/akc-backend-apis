@@ -71,9 +71,9 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
     this.id = id;
   }
 
-  public static CommunityFarmFloraHarvest toEntity(int floraId,HarvestModel.CommunityFarmFloraHarvestModel harvestModel){
+  public static CommunityFarmFloraHarvest toEntity(int floraId,HarvestModel harvestModel){
     final CommunityFarmFloraHarvest communityFarmFloraHarvest = new CommunityFarmFloraHarvest();
-    communityFarmFloraHarvest.setFloraStId(floraId);
+    communityFarmFloraHarvest.setFloraStId(1);
     communityFarmFloraHarvest.setHarvestMethod("0");
     communityFarmFloraHarvest.setHarvestDate(harvestModel.getHarvestDate());
     communityFarmFloraHarvest.setHarvestQuantity(harvestModel.getHarvestQuantity());
@@ -81,8 +81,8 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
     communityFarmFloraHarvest.setSoldQuantity(harvestModel.getSoldQuantity());
     communityFarmFloraHarvest.setSoldRate(harvestModel.getSoldRate());
     communityFarmFloraHarvest.setSoldIncome(harvestModel.getTotalIncome());
-    communityFarmFloraHarvest.setPlantSeed(harvestModel.getFloraType());
-    communityFarmFloraHarvest.setPlantSeedUnit(harvestModel.getFloraWeight());
+//    communityFarmFloraHarvest.setPlantSeed(harvestModel.getFloraType());
+//    communityFarmFloraHarvest.setPlantSeedUnit(harvestModel.getFloraWeight());
     return communityFarmFloraHarvest;
   }
 

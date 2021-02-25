@@ -1,5 +1,12 @@
 package com.swift.akc.dto;
 
-public class AdminDTO {
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+
+public class AdminDTO {
+private String userName;
+private String token;
 }

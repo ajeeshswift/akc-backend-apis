@@ -1,5 +1,6 @@
 package com.swift.akc.controller;
 
+import com.swift.akc.dto.AdminDTO;
 import com.swift.akc.entity.Admin;
 import com.swift.akc.model.AuthenticationModel;
 import com.swift.akc.service.AuthenticationService;
@@ -17,8 +18,15 @@ public class AuthenticationController {
   private final AuthenticationService authenticationService;
 
   @PostMapping("/userValidation")
-    public Admin validation(@RequestBody AuthenticationModel authenticationModel){
-    return authenticationService.userValidation(authenticationModel);
+    public AdminDTO validation(@RequestBody AuthenticationModel authenticationModel){
+
+    String token = authenticationService.getJWTToken(authenticationModel.getUserName());
+    AdminDTO adminDTO = new AdminDTO();
+    adminDTO.setUserName(authenticationModel.getUserName());
+    adminDTO.setToken(token);
+    return adminDTO;
+
+    //return authenticationService.userValidation(authenticationModel);
 
 }
 

@@ -70,37 +70,37 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
     this.floraStId = floraStId;
   }
 
-  public static CommunityFarmFloraStart toEntity(HarvestModel.CommunityFarmFloraStartModel harvestModel){
+  public static CommunityFarmFloraStart toEntity(HarvestModel harvestModel){
        final CommunityFarmFloraStart communityFarmFloraStart = new CommunityFarmFloraStart();
 
-       communityFarmFloraStart.setFarmid(harvestModel.getFarmId());
-       communityFarmFloraStart.setPlantId(harvestModel.getFloraId());
-       communityFarmFloraStart.setIssueDt(harvestModel.getIssueDate());
+       communityFarmFloraStart.setFarmid(1);
+       communityFarmFloraStart.setPlantId(1);
+       communityFarmFloraStart.setIssueDt(harvestModel.getSowingDate());
        communityFarmFloraStart.setIssueBy("0");
        communityFarmFloraStart.setIssueSize(harvestModel.getSapQuantity());
        communityFarmFloraStart.setUid(1);
-       communityFarmFloraStart.setEntryDate(harvestModel.getEntryDate());
-       communityFarmFloraStart.setVlgid(harvestModel.getVillageId());
-       communityFarmFloraStart.setPlantGroupId(harvestModel.getPlantGroupId());
-       communityFarmFloraStart.setProjectId(harvestModel.getProjectId());
+       //communityFarmFloraStart.setEntryDate(harvestModel.getEntryDate());
+       communityFarmFloraStart.setVlgid(1);
+       communityFarmFloraStart.setPlantGroupId(1);
+       communityFarmFloraStart.setProjectId(1);
        return communityFarmFloraStart;
   }
 
   public HarvestDTO toDTO(CommunityFarmFloraHarvest communityFarmFloraHarvest){
     HarvestDTO harvestDTO = new HarvestDTO();
-    harvestDTO.setFloraId(this.floraStId);
-    harvestDTO.setProjectId(this.projectId);
-    harvestDTO.setEntryDate(this.entryDate);
-    harvestDTO.setIssueDate(this.issueDt);
-    harvestDTO.setSeedQuantity(communityFarmFloraHarvest.getSoldQuantity());
+//    harvestDTO.setFloraId(this.floraStId);
+//    harvestDTO.setProjectId(this.projectId);
+//    harvestDTO.setEntryDate(this.entryDate);
+    harvestDTO.setSowingDate(this.issueDt);
+    harvestDTO.setSapQuantity(this.issueSize);
     harvestDTO.setHarvestDate(communityFarmFloraHarvest.getHarvestDate());
     harvestDTO.setHarvestQuantity(communityFarmFloraHarvest.getHarvestQuantity());
     harvestDTO.setOwnUseQuantity(communityFarmFloraHarvest.getOwnUse());
     harvestDTO.setSoldQuantity(communityFarmFloraHarvest.getSoldQuantity());
     harvestDTO.setSoldRate(communityFarmFloraHarvest.getSoldRate());
     harvestDTO.setTotalIncome(communityFarmFloraHarvest.getSoldIncome());
-    harvestDTO.setWeightUnit(communityFarmFloraHarvest.getPlantSeedUnit());
-    harvestDTO.setFloraType(communityFarmFloraHarvest.getPlantSeed());
+//    harvestDTO.setWeightUnit(communityFarmFloraHarvest.getPlantSeedUnit());
+//    harvestDTO.setFloraType(communityFarmFloraHarvest.getPlantSeed());
 
   return harvestDTO;
   }

@@ -21,8 +21,8 @@ public class HarvestController {
 
   @PostMapping("/harvestEntry")
   public HarvestDTO save(@RequestBody HarvestModel harvestModel){
-    CommunityFarmFloraStart communityFarmFloraStart     = harvestService.save(harvestModel.getCommunityFarmFloraStartModel());
-    CommunityFarmFloraHarvest communityFarmFloraHarvest = harvestService.saveRestDetails(communityFarmFloraStart.getFloraStId(),harvestModel.getCommunityFarmFloraHarvestModel());
+    CommunityFarmFloraStart communityFarmFloraStart     = harvestService.saveDetails(harvestModel);
+    CommunityFarmFloraHarvest communityFarmFloraHarvest = harvestService.saveRestDetails(communityFarmFloraStart.getFloraStId(),harvestModel);
 
     return communityFarmFloraStart.toDTO(communityFarmFloraHarvest);
 
