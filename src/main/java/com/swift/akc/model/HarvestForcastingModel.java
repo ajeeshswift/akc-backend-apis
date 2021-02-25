@@ -11,10 +11,10 @@ import java.util.Date;
 public class HarvestForcastingModel {
     private int id;
     private double area;
-    private Date crop_showing_date;
+    private Date cropShowingDate;
     private Date date;
-    private int farm_id;
-    private int plant_id;
+    private int farmId;
+    private int plantId;
     private double seeds;
     private Time time;
     private int uid;
