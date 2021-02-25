@@ -1,6 +1,7 @@
 package com.swift.akc.entity;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -48,11 +49,11 @@ public class CommunityHarvestForecasting extends AbstractEntity implements Seria
     @Basic(optional = false)
     @Column(name = "area")
     private double area;
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @Column(name = "crop_showing_date")
     @Temporal(TemporalType.DATE)
     private Date cropShowingDate;
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
     private Date date;
@@ -99,7 +100,7 @@ public class CommunityHarvestForecasting extends AbstractEntity implements Seria
         harvestForecastingDTO.setFarm_id(this.farmId);
         harvestForecastingDTO.setPlant_id(this.plantId);
         harvestForecastingDTO.setSeeds(this.seeds);
-        harvestForecastingDTO.setDate(this.time);
+        harvestForecastingDTO.setTime((Time) this.time);
         harvestForecastingDTO.setUid(this.uid);
         return harvestForecastingDTO;
     }

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
 public class HarvestForcastingController {
     private final HarvestForcastingService harvestForcastingService;
 
-    @GetMapping
+    @GetMapping("/harvestForcastingDetails")
     public ResponseListDTO getHarvestForeCasting(){
     final ResponseListDTO responseListDTO = new ResponseListDTO();
     responseListDTO.setData(CommunityHarvestForecasting.toDTOList(harvestForcastingService.getHarvestForeCasting()));
     return responseListDTO;
     }
 
-    @PostMapping
+    @PostMapping("/harvestForcasting")
     public CommunityHarvestForecasting add(@RequestBody HarvestForcastingModel harvestForcastingModel) {
         return harvestForcastingService.saveorUpdate(harvestForcastingModel);
     }
