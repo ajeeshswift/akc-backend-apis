@@ -4,6 +4,7 @@ import com.swift.akc.dto.AdminDTO;
 import com.swift.akc.entity.Admin;
 import com.swift.akc.model.AuthenticationModel;
 import com.swift.akc.service.AuthenticationService;
+import com.swift.akc.utils.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,16 +19,14 @@ public class AuthenticationController {
   private final AuthenticationService authenticationService;
 
   @PostMapping("/userValidation")
-    public AdminDTO validation(@RequestBody AuthenticationModel authenticationModel){
 
-    String token = authenticationService.getJWTToken(authenticationModel.getUserName());
+  public AdminDTO validation(@RequestBody AuthenticationModel authenticationModel){
     AdminDTO adminDTO = new AdminDTO();
-    adminDTO.setUserName(authenticationModel.getUserName());
+    Admin admin = authenticationService.userValidation(authenticationModel);
+    String token = SecurityUtils.base64Encode(admin.getId());
+    adminDTO.setUserName(admin.getName());
     adminDTO.setToken(token);
     return adminDTO;
-
-    //return authenticationService.userValidation(authenticationModel);
-
-}
+  }
 
 }
