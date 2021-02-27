@@ -8,6 +8,8 @@ import com.swift.akc.repository.CommunityFarmFloraStartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class HarvestServiceImpl implements HarvestService {
@@ -25,5 +27,13 @@ public class HarvestServiceImpl implements HarvestService {
     return communityFarmFloraHarvestRepository.saveAndFlush(CommunityFarmFloraHarvest.toEntity(floraId,harvestModel));
   }
 
+  @Override
+  public List<CommunityFarmFloraStart> getFloraDetails(){
+    return communityFarmFloraStartRepository.findAll();
+  }
 
+  @Override
+  public List<CommunityFarmFloraHarvest> getHarvestDetails(){
+    return communityFarmFloraHarvestRepository.findAll();
+  }
 }

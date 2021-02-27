@@ -4,9 +4,14 @@ import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
 import com.swift.akc.model.HarvestModel;
 
+import java.util.List;
+
 public interface HarvestService {
 
-  CommunityFarmFloraStart saveDetails(HarvestModel harvestModel);
+    CommunityFarmFloraStart saveDetails(HarvestModel harvestModel);
 
-  CommunityFarmFloraHarvest saveRestDetails(int floraId,HarvestModel harvestModel);
+    CommunityFarmFloraHarvest saveRestDetails(int floraId, HarvestModel harvestModel);
+
+    List<CommunityFarmFloraStart> getFloraDetails();
+    List<CommunityFarmFloraHarvest> getHarvestDetails();
 }
