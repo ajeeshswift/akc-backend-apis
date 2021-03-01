@@ -1,8 +1,12 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.model.HarvestModel;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -85,6 +89,29 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
 //    communityFarmFloraHarvest.setPlantSeedUnit(harvestModel.getFloraWeight());
     return communityFarmFloraHarvest;
   }
+
+  public HarvestDTO toDTO() {
+    HarvestDTO harvestDTO = new HarvestDTO();
+    harvestDTO.setSowingDate(new Date());
+    harvestDTO.setSapQuantity("100");
+    harvestDTO.setHarvestDate(this.getHarvestDate());
+    harvestDTO.setHarvestQuantity(this.getHarvestQuantity());
+    harvestDTO.setOwnUseQuantity(this.getOwnUse());
+    harvestDTO.setSoldQuantity(this.getSoldQuantity());
+    harvestDTO.setSoldRate(this.getSoldRate());
+    harvestDTO.setTotalIncome(this.getSoldIncome());
+
+    return harvestDTO;
+  }
+
+  public static Collection<HarvestDTO> toDTOList(final List<CommunityFarmFloraHarvest> communityFarmFloraHarvests) {
+    final List<HarvestDTO> harvestDTOList = new ArrayList<>();
+        for (CommunityFarmFloraHarvest communityFarmFloraHarvest : communityFarmFloraHarvests) {
+      harvestDTOList.add(communityFarmFloraHarvest.toDTO());
+    }
+    return harvestDTOList;
+  }
+
 
 }
 

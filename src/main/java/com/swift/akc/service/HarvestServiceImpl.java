@@ -14,6 +14,8 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class HarvestServiceImpl implements HarvestService {
@@ -33,6 +35,7 @@ public class HarvestServiceImpl implements HarvestService {
   }
 
   @Override
+<<<<<<< HEAD
   public CommunityFarmDetails getFarmDetails(String farmNo) {
     CommunityFarmDetails communityFarmDetails = communityFarmDetailsRepository.findByFmIN(farmNo);
     if(communityFarmDetails == null) {
@@ -41,5 +44,14 @@ public class HarvestServiceImpl implements HarvestService {
     return communityFarmDetails;
   }
 
+=======
+  public List<CommunityFarmFloraStart> getFloraDetails(){
+    return communityFarmFloraStartRepository.findAll();
+  }
+>>>>>>> b557443c06ea709ca94e020c39e347902652c22f
 
+  @Override
+  public List<CommunityFarmFloraHarvest> getHarvestDetails(){
+    return communityFarmFloraHarvestRepository.findAll();
+  }
 }
