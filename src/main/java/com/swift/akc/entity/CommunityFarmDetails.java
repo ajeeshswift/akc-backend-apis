@@ -1,5 +1,7 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.dto.FarmDTO;
+import com.swift.akc.dto.VillageDTO;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -132,6 +134,12 @@ public class CommunityFarmDetails extends AbstractEntity implements Serializable
     this.id = id;
     this.gpId = gpId;
     this.clusterId = clusterId;
+  }
+
+  public FarmDTO toDTO(){
+    FarmDTO farmDTO = new FarmDTO();
+    farmDTO.setFarmId(this.farmid);
+    return farmDTO;
   }
 
 }

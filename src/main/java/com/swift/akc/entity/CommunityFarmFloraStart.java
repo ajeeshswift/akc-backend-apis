@@ -73,7 +73,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
   public static CommunityFarmFloraStart toEntity(HarvestModel harvestModel){
        final CommunityFarmFloraStart communityFarmFloraStart = new CommunityFarmFloraStart();
 
-       communityFarmFloraStart.setFarmid(1);
+       communityFarmFloraStart.setFarmid(harvestModel.getFarmId());
        communityFarmFloraStart.setPlantId(1);
        communityFarmFloraStart.setIssueDt(harvestModel.getSowingDate());
        communityFarmFloraStart.setIssueBy("0");
