@@ -44,7 +44,6 @@ public class HarvestController {
     @GetMapping("/harvestList")
     public ResponseListDTO getFloraHarvestDetails() {
         final ResponseListDTO responseListDTO = new ResponseListDTO();
-        responseListDTO.setData(CommunityFarmFloraStart.toDTOList(harvestService.getFloraDetails()));
         responseListDTO.setData(CommunityFarmFloraHarvest.toDTOList(harvestService.getHarvestDetails()));
         return responseListDTO;
     }
