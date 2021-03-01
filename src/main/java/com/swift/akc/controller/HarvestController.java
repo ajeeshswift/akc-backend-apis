@@ -28,10 +28,10 @@ public class HarvestController {
 
     private final HarvestService harvestService;
 
-  @GetMapping("/farmDetails/{farmNo}")
-  public FarmDTO getFarm(@PathVariable("farmNo") String farmNo) {
-    return harvestService.getFarmDetails(farmNo).toDTO();
-  }
+    @GetMapping("/farmDetails/{farmNo}")
+    public FarmDTO getFarm(@PathVariable("farmNo") String farmNo) {
+        return harvestService.getFarmDetails(farmNo).toDTO();
+    }
 
     @PostMapping("/harvestEntry")
     public HarvestDTO save(@RequestBody HarvestModel harvestModel) {
