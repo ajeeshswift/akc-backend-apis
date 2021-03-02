@@ -14,9 +14,9 @@ public interface HarvestService {
 
     CommunityFarmFloraHarvest saveRestDetails(int floraId, HarvestModel harvestModel);
 
-  CommunityFarmDetails getFarmDetails(String farmNo);
+    CommunityFarmDetails getFarmDetails(String farmNo);
 
     List<CommunityFarmFloraStart> getFloraDetails();
-    List<CommunityFarmFloraHarvest> getHarvestDetails();
 
+    List<CommunityFarmFloraHarvest> getHarvestDetails();
 }

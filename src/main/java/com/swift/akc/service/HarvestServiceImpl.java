@@ -1,16 +1,13 @@
 package com.swift.akc.service;
 
-import com.swift.akc.dto.FarmDTO;
 import com.swift.akc.entity.CommunityFarmDetails;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
-import com.swift.akc.entity.Village;
 import com.swift.akc.exceptions.NotFoundException;
 import com.swift.akc.model.HarvestModel;
 import com.swift.akc.repository.CommunityFarmDetailsRepository;
 import com.swift.akc.repository.CommunityFarmFloraHarvestRepository;
 import com.swift.akc.repository.CommunityFarmFloraStartRepository;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +32,6 @@ public class HarvestServiceImpl implements HarvestService {
   }
 
   @Override
-
   public CommunityFarmDetails getFarmDetails(String farmNo) {
     CommunityFarmDetails communityFarmDetails = communityFarmDetailsRepository.findByFmIN(farmNo);
     if(communityFarmDetails == null) {
@@ -44,11 +40,9 @@ public class HarvestServiceImpl implements HarvestService {
     return communityFarmDetails;
   }
 
-
   public List<CommunityFarmFloraStart> getFloraDetails(){
     return communityFarmFloraStartRepository.findAll();
   }
-
 
   @Override
   public List<CommunityFarmFloraHarvest> getHarvestDetails(){

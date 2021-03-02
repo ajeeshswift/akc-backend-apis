@@ -28,10 +28,10 @@ public class HarvestController {
 
     private final HarvestService harvestService;
 
-  @GetMapping("/farmDetails/{farmNo}")
-  public FarmDTO getFarm(@PathVariable("farmNo") String farmNo) {
-    return harvestService.getFarmDetails(farmNo).toDTO();
-  }
+    @GetMapping("/farmDetails/{farmNo}")
+    public FarmDTO getFarm(@PathVariable("farmNo") String farmNo) {
+        return harvestService.getFarmDetails(farmNo).toDTO();
+    }
 
     @PostMapping("/harvestEntry")
     public HarvestDTO save(@RequestBody HarvestModel harvestModel) {
@@ -44,7 +44,6 @@ public class HarvestController {
     @GetMapping("/harvestList")
     public ResponseListDTO getFloraHarvestDetails() {
         final ResponseListDTO responseListDTO = new ResponseListDTO();
-        responseListDTO.setData(CommunityFarmFloraStart.toDTOList(harvestService.getFloraDetails()));
         responseListDTO.setData(CommunityFarmFloraHarvest.toDTOList(harvestService.getHarvestDetails()));
         return responseListDTO;
     }
