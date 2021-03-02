@@ -16,6 +16,11 @@
         android:icon="@drawable/ic_launcher_background"/>
 
     <item
+        android:id="@+id/harvestlist"
+        android:title="Harvest List"
+        android:icon="@drawable/ic_person_holo_dark"/>
+
+    <item
         android:id="@+id/profile"
         android:title="Profile"
         android:icon="@drawable/ic_person_holo_dark"/>

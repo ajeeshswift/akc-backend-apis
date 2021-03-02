@@ -20,13 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 import com.swift.akc.R;
-import com.swift.akc.adapters.HarvestVisitAdapter;
+import com.swift.akc.adapters.HarvestVisitListAdapter;
 import com.swift.akc.extras.Constants;
 import com.swift.akc.extras.Storage;
 import com.swift.akc.helper.ui.DatePickerView;
 import com.swift.akc.network.ApiEndpoint;
-import com.swift.akc.network.data.HarvestVO;
-import com.swift.akc.network.data.HarvestVisitListVO;
 import com.swift.akc.network.data.HarvestVisitVO;
 import com.swift.akc.utils.DateUtils;
 
@@ -47,7 +45,7 @@ public class HarvestVisitEntryFragment extends BaseFragment implements View.OnCl
     AutoCompleteTextView plantOrSeed;
     String Dest;
 
-    private HarvestVisitAdapter mAdapter;
+    private HarvestVisitListAdapter mAdapter;
 
     private RecyclerView mRecyclerView;
 
@@ -155,14 +153,14 @@ public class HarvestVisitEntryFragment extends BaseFragment implements View.OnCl
 
                     }
                     @Override
-                    public void onNext(HarvestVisitVO listVO) {
+                    public void onNext(HarvestVisitVO object) {
                         Toast.makeText(getActivity(), "Successfully Added", Toast.LENGTH_LONG).show();
-                        mAdapter.refresh(listVO.getData());
+                        //mAdapter.refresh(HarvestVisitVO);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), " ", Toast.LENGTH_LONG).show();
                         hideLoading();
                     }
 

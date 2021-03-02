@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class HarvestVisitVO extends AbstractListResponseVO {
+public class HarvestVisitVO {
 
     @Expose
     @SerializedName("id")
@@ -114,15 +114,4 @@ public class HarvestVisitVO extends AbstractListResponseVO {
     public void setTotalIncome(String totalIncome) {
         this.totalIncome = totalIncome;
     }
-
-    private List<HarvestVisitVO> data;
-
-    public List<HarvestVisitVO> getData() {
-        return data;
-    }
-
-    public void setData(List<HarvestVisitVO> data) {
-        this.data = data;
-    }
-
 }

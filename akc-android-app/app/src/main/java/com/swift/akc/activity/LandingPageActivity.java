@@ -25,6 +25,7 @@ import com.swift.akc.fragments.ComingSoonFragment;
 import com.swift.akc.fragments.HarvestFarmSearchFragment;
 import com.swift.akc.fragments.HarvestForecastingEntryFragment;
 import com.swift.akc.fragments.HarvestVisitEntryFragment;
+import com.swift.akc.fragments.HarvestVisitListFragment;
 import com.swift.akc.fragments.HomeFragment;
 
 public class LandingPageActivity extends BaseAppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -37,6 +38,8 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Bottom
     public static final int FRAGMENT_HARVEST_VISIT_ENTRY = 3;
 
     public static final int FRAGMENT_HARVEST_FORECASTING_ENTRY = 4;
+
+    public static final int FRAGMENT_HARVEST_VISIT_LIST = 5;
 
     Toolbar mToolbar;
 
@@ -65,6 +68,10 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Bottom
                 Storage.selectedMenu = EntryType.HARVEST_FORECASTING_ENTRY;
                 displayView(FRAGMENT_HARVEST_FARM_SEARCH, "Harvest Entry", true);
                 break;
+            case R.id.harvestlist:
+                Storage.selectedMenu = EntryType.HARVEST_VISIT_LIST;
+                displayView(FRAGMENT_HARVEST_VISIT_LIST, "Harvest Entry", true);
+                break;
             case R.id.profile:
                 Storage.selectedMenu = "PROFILE";
                 displayView(FRAGMENT_HOME, "Harvest Entry", true);
@@ -87,6 +94,9 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Bottom
                 break;
             case FRAGMENT_HARVEST_VISIT_ENTRY:
                 fragment = HarvestVisitEntryFragment.newInstance(aTitle);
+                break;
+            case FRAGMENT_HARVEST_VISIT_LIST:
+                fragment = HarvestVisitListFragment.newInstance(aTitle);
                 break;
             default:
                 fragment = ComingSoonFragment.newInstance(aTitle);

@@ -14,7 +14,7 @@ import com.swift.akc.network.data.HarvestVisitVO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HarvestVisitAdapter extends RecyclerView.Adapter<HarvestVisitAdapter.HarvestEntryViewHolder> {
+public class HarvestVisitListAdapter extends RecyclerView.Adapter<HarvestVisitListAdapter.HarvestEntryViewHolder> {
 
     public static final String TAG = "MyOrderStoreListAdapter";
 
@@ -22,7 +22,7 @@ public class HarvestVisitAdapter extends RecyclerView.Adapter<HarvestVisitAdapte
 
     private List<HarvestVisitVO> harvestVisitVOList = new ArrayList<>();
 
-    public HarvestVisitAdapter(Activity context) {
+    public HarvestVisitListAdapter(Activity context) {
         this.mContext = context;
     }
 
@@ -33,14 +33,14 @@ public class HarvestVisitAdapter extends RecyclerView.Adapter<HarvestVisitAdapte
 
     @NonNull
     @Override
-    public HarvestVisitAdapter.HarvestEntryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public HarvestVisitListAdapter.HarvestEntryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.item_harvest_entry, viewGroup, false);
-        return new HarvestVisitAdapter.HarvestEntryViewHolder(view);
+        View view = inflater.inflate(R.layout.item_harvest_list, viewGroup, false);
+        return new HarvestVisitListAdapter.HarvestEntryViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HarvestVisitAdapter.HarvestEntryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HarvestVisitListAdapter.HarvestEntryViewHolder holder, int position) {
         HarvestVisitVO harvestVisitVO = harvestVisitVOList.get(position);
         holder.sapQuantity.setText(harvestVisitVO.getSapQuantity());
         holder.sowingDate.setText(harvestVisitVO.getSowingDate());
