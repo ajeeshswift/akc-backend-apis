@@ -1,5 +1,6 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.dto.AppContext;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -88,6 +89,7 @@ public class CommunityHarvestForecasting extends AbstractEntity implements Seria
         final CommunityHarvestForecasting communityHarvestForecasting = new CommunityHarvestForecasting();
         ModelMapper mapper = new ModelMapper();
         mapper.map(harvestForcastingModel, communityHarvestForecasting);
+        communityHarvestForecasting.setUid(AppContext.getAdmin().getId());
         return communityHarvestForecasting;
     }
 

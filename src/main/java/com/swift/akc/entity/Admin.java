@@ -31,7 +31,7 @@ public class Admin extends AbstractEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
-  private Short id;
+  private Integer id;
   @Basic(optional = false)
   @Column(name = "name")
   private String name;
@@ -76,11 +76,11 @@ public class Admin extends AbstractEntity implements Serializable {
   public Admin() {
   }
 
-  public Admin(Short id) {
+  public Admin(Integer id) {
     this.id = id;
   }
 
-  public Admin(Short id, String name, String pass, byte[] isDoctor, short doctorId, byte[] isAdmin, byte[] isReturn) {
+  public Admin(Integer id, String name, String pass, byte[] isDoctor, short doctorId, byte[] isAdmin, byte[] isReturn) {
     this.id = id;
     this.name = name;
     this.pass = pass;

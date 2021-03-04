@@ -5,6 +5,7 @@ import com.swift.akc.entity.Admin;
 import com.swift.akc.exceptions.AuthenticationException;
 import com.swift.akc.model.AuthenticationModel;
 import com.swift.akc.repository.AdminRepository;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     return admin;
   }
 
+  @Override
+  public Admin fetchById(Integer id) {
+    Optional<Admin> adminOpt = adminRepository.findById(id);
+    return adminOpt.get();
+  }
 
 
 }

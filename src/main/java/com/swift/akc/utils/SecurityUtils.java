@@ -12,7 +12,8 @@ public class SecurityUtils {
   }
 
   public String base64Decode(String token){
-    return "";
+    Base64 base64 = new Base64();
+    return new String(base64.decode(token));
   }
 
 }

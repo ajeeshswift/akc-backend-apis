@@ -1,5 +1,6 @@
 package com.swift.akc.entity;
 
+import com.swift.akc.dto.AppContext;
 import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.model.HarvestModel;
 
@@ -82,7 +83,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
        communityFarmFloraStart.setIssueDt(harvestModel.getSowingDate());
        communityFarmFloraStart.setIssueBy("0");
        communityFarmFloraStart.setIssueSize(harvestModel.getSapQuantity());
-       communityFarmFloraStart.setUid(1);
+       communityFarmFloraStart.setUid(AppContext.getAdmin().getId());
        //communityFarmFloraStart.setEntryDate(harvestModel.getEntryDate());
        communityFarmFloraStart.setVlgid(1);
        communityFarmFloraStart.setPlantGroupId(1);

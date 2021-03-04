@@ -77,7 +77,7 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
 
   public static CommunityFarmFloraHarvest toEntity(int floraId,HarvestModel harvestModel){
     final CommunityFarmFloraHarvest communityFarmFloraHarvest = new CommunityFarmFloraHarvest();
-    communityFarmFloraHarvest.setFloraStId(1);
+    communityFarmFloraHarvest.setFloraStId(floraId);
     communityFarmFloraHarvest.setHarvestMethod("0");
     communityFarmFloraHarvest.setHarvestDate(harvestModel.getHarvestDate());
     communityFarmFloraHarvest.setHarvestQuantity(harvestModel.getHarvestQuantity());
