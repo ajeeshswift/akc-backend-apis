@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface FloraService {
 
-    List<CommunityFlora> getSortFlora();
+    List<CommunityFlora> getSortFlora(String query);
 
 }

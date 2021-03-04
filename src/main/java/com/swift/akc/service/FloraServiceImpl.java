@@ -12,8 +12,8 @@ import java.util.List;
 public class FloraServiceImpl implements FloraService{
     private final CommunityFloraRepository communityFloraRepository;
     @Override
-    public List<CommunityFlora> getSortFlora() {
-        return communityFloraRepository.findAll();
+    public List<CommunityFlora> getSortFlora(String query) {
+        return communityFloraRepository.findByFloraContaining(query);
     }
 
 

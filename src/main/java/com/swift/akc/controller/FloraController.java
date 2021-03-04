@@ -20,7 +20,7 @@ public class FloraController {
     @GetMapping("/getFlora")
     public ResponseListDTO getFlora(@RequestParam("query") String query) {
         final ResponseListDTO responseListDTO = new ResponseListDTO();
-        responseListDTO.setData(CommunityFlora.toDTOList(floraService.getSortFlora()));
+        responseListDTO.setData(CommunityFlora.toDTOList(floraService.getSortFlora(query)));
         return responseListDTO;
     }
 
