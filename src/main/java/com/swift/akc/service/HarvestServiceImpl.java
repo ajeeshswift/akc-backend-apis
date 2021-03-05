@@ -1,5 +1,6 @@
 package com.swift.akc.service;
 
+import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.entity.CommunityFarmDetails;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
@@ -50,12 +51,21 @@ public class HarvestServiceImpl implements HarvestService {
     return communityFarmFloraStartRepository.findAll();
   }
 
+  public List<CommunityFarmFloraStart>getHarvestFloraStartDetails(){
+    return communityFarmFloraStartRepository.findAll();
+  }
+
   @Override
   public List<CommunityFarmFloraHarvest> getHarvestDetails(){
     return communityFarmFloraHarvestRepository.findAll();
   }
 
-  public int getPlantGroupId(Integer floraId) {
+  @Override
+  public List<HarvestDTO> fetchAllHarvestFarmDetails() {
+    return this.communityFarmFloraStartRepository.findAllHarvestVisitDetails();
+  }
+
+  public int getPlantGroupId(int floraId) {
     ConfigMapPlantGroup configMapPlantGroup = configMapPlantGroupRepository.findByPlantId(floraId);
     return configMapPlantGroup.getGroupId();
   }

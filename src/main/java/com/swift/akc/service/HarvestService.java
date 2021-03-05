@@ -1,6 +1,7 @@
 package com.swift.akc.service;
 
 import com.swift.akc.dto.FarmDTO;
+import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.entity.CommunityFarmDetails;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
@@ -18,5 +19,9 @@ public interface HarvestService {
 
     List<CommunityFarmFloraStart> getFloraDetails();
 
+    List<CommunityFarmFloraStart> getHarvestFloraStartDetails();
+
     List<CommunityFarmFloraHarvest> getHarvestDetails();
+
+    List<HarvestDTO> fetchAllHarvestFarmDetails();
 }

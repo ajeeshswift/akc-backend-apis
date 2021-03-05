@@ -9,6 +9,7 @@ import com.swift.akc.entity.Village;
 import com.swift.akc.exceptions.NotFoundException;
 import com.swift.akc.model.HarvestModel;
 import com.swift.akc.service.HarvestService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +45,7 @@ public class HarvestController {
     @GetMapping("/harvestList")
     public ResponseListDTO getFloraHarvestDetails() {
         final ResponseListDTO responseListDTO = new ResponseListDTO();
-        responseListDTO.setData(CommunityFarmFloraHarvest.toDTOList(harvestService.getHarvestDetails()));
+        responseListDTO.setData(harvestService.fetchAllHarvestFarmDetails());
         return responseListDTO;
     }
 }

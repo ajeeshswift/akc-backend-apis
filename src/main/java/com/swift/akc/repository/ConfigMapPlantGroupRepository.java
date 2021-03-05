@@ -1,10 +1,7 @@
 package com.swift.akc.repository;
 
-import com.swift.akc.entity.CommunityFlora;
 import com.swift.akc.entity.ConfigMapPlantGroup;
-import java.util.List;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository

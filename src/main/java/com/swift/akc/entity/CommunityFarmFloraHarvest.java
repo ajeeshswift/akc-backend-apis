@@ -59,7 +59,7 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
   @Temporal(TemporalType.TIMESTAMP)
   private Date edtm;
   @Column(name = "uid")
-  private Short uid;
+  private int uid;
   @Column(name = "dtm")
   @Temporal(TemporalType.TIMESTAMP)
   private Date dtm;
@@ -90,24 +90,23 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
     return communityFarmFloraHarvest;
   }
 
+
+
   public HarvestDTO toDTO() {
     HarvestDTO harvestDTO = new HarvestDTO();
-    harvestDTO.setSowingDate(new Date());
-    harvestDTO.setSapQuantity("100");
-    harvestDTO.setHarvestDate(this.getHarvestDate());
+    harvestDTO.setHarvestDate(new Date());
     harvestDTO.setHarvestQuantity(this.getHarvestQuantity());
     harvestDTO.setOwnUseQuantity(this.getOwnUse());
     harvestDTO.setSoldQuantity(this.getSoldQuantity());
     harvestDTO.setSoldRate(this.getSoldRate());
     harvestDTO.setTotalIncome(this.getSoldIncome());
-
     return harvestDTO;
   }
 
   public static Collection<HarvestDTO> toDTOList(final List<CommunityFarmFloraHarvest> communityFarmFloraHarvests) {
     final List<HarvestDTO> harvestDTOList = new ArrayList<>();
         for (CommunityFarmFloraHarvest communityFarmFloraHarvest : communityFarmFloraHarvests) {
-      harvestDTOList.add(communityFarmFloraHarvest.toDTO());
+          harvestDTOList.add(communityFarmFloraHarvest.toDTO());
     }
     return harvestDTOList;
   }
