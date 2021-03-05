@@ -76,17 +76,17 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
     }
 
     public static CommunityFarmFloraStart toEntity(HarvestModel harvestModel) {
-        final CommunityFarmFloraStart communityFarmFloraStart = new CommunityFarmFloraStart();
+
+      final CommunityFarmFloraStart communityFarmFloraStart = new CommunityFarmFloraStart();
 
        communityFarmFloraStart.setFarmid(harvestModel.getFarmId());
-       communityFarmFloraStart.setPlantId(1);
+       communityFarmFloraStart.setPlantId(harvestModel.getFloraId());
        communityFarmFloraStart.setIssueDt(harvestModel.getSowingDate());
        communityFarmFloraStart.setIssueBy("0");
        communityFarmFloraStart.setIssueSize(harvestModel.getSapQuantity());
        communityFarmFloraStart.setUid(AppContext.getAdmin().getId());
-       //communityFarmFloraStart.setEntryDate(harvestModel.getEntryDate());
-       communityFarmFloraStart.setVlgid(1);
-       communityFarmFloraStart.setPlantGroupId(1);
+       communityFarmFloraStart.setEntryDate(new Date());
+       communityFarmFloraStart.setVlgid(harvestModel.getVillageId());
        communityFarmFloraStart.setProjectId(1);
        return communityFarmFloraStart;
   }
@@ -96,7 +96,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
 
     public HarvestDTO toDTO(CommunityFarmFloraHarvest communityFarmFloraHarvest) {
         HarvestDTO harvestDTO = new HarvestDTO();
-//    harvestDTO.setFloraId(this.floraStId);
+        harvestDTO.setFloraId(this.floraStId);
 //    harvestDTO.setProjectId(this.projectId);
 //    harvestDTO.setEntryDate(this.entryDate);
         harvestDTO.setSowingDate(this.issueDt);
@@ -108,7 +108,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
         harvestDTO.setSoldRate(communityFarmFloraHarvest.getSoldRate());
         harvestDTO.setTotalIncome(communityFarmFloraHarvest.getSoldIncome());
 //    harvestDTO.setWeightUnit(communityFarmFloraHarvest.getPlantSeedUnit());
-//    harvestDTO.setFloraType(communityFarmFloraHarvest.getPlantSeed());
+
 
         return harvestDTO;
     }

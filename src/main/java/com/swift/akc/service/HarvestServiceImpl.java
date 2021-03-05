@@ -3,11 +3,13 @@ package com.swift.akc.service;
 import com.swift.akc.entity.CommunityFarmDetails;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
+import com.swift.akc.entity.ConfigMapPlantGroup;
 import com.swift.akc.exceptions.NotFoundException;
 import com.swift.akc.model.HarvestModel;
 import com.swift.akc.repository.CommunityFarmDetailsRepository;
 import com.swift.akc.repository.CommunityFarmFloraHarvestRepository;
 import com.swift.akc.repository.CommunityFarmFloraStartRepository;
+import com.swift.akc.repository.ConfigMapPlantGroupRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +22,14 @@ public class HarvestServiceImpl implements HarvestService {
   private final CommunityFarmFloraHarvestRepository communityFarmFloraHarvestRepository;
   private final CommunityFarmFloraStartRepository communityFarmFloraStartRepository;
   private final CommunityFarmDetailsRepository communityFarmDetailsRepository;
+  private final ConfigMapPlantGroupRepository configMapPlantGroupRepository;
 
   @Override
   public CommunityFarmFloraStart saveDetails(HarvestModel harvestModel) {
-    return communityFarmFloraStartRepository.saveAndFlush(CommunityFarmFloraStart.toEntity(harvestModel));
+    CommunityFarmFloraStart communityFarmFloraStart = CommunityFarmFloraStart.toEntity(harvestModel);
+    int plantGroupId = getPlantGroupId(harvestModel.getFloraId());
+    communityFarmFloraStart.setPlantGroupId(plantGroupId);
+    return communityFarmFloraStartRepository.saveAndFlush(communityFarmFloraStart);
   }
 
   @Override
@@ -47,5 +53,10 @@ public class HarvestServiceImpl implements HarvestService {
   @Override
   public List<CommunityFarmFloraHarvest> getHarvestDetails(){
     return communityFarmFloraHarvestRepository.findAll();
+  }
+
+  public int getPlantGroupId(Integer floraId) {
+    ConfigMapPlantGroup configMapPlantGroup = configMapPlantGroupRepository.findByPlantId(floraId);
+    return configMapPlantGroup.getGroupId();
   }
 }

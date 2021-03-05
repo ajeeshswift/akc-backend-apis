@@ -9,9 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,10 +23,10 @@ import lombok.Setter;
  * @author Dharma
  */
 @Entity
-@Table(name = "config_plant_group")
+@Table(name = "config_map_plant_group")
 @Getter
 @Setter
-public class ConfigPlantGroup extends AbstractEntity implements Serializable {
+public class ConfigMapPlantGroup implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
@@ -31,8 +34,10 @@ public class ConfigPlantGroup extends AbstractEntity implements Serializable {
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
-  @Column(name = "plant_grp")
-  private String plantGrp;
+  @Column(name = "group_id")
+  private Integer groupId;
+  @Column(name = "plant_id")
+  private Integer plantId;
   @Lob
   @Column(name = "is_active")
   private byte[] isActive;
@@ -42,13 +47,12 @@ public class ConfigPlantGroup extends AbstractEntity implements Serializable {
   @Temporal(TemporalType.TIMESTAMP)
   private Date datetime;
 
-  public ConfigPlantGroup() {
+  public ConfigMapPlantGroup() {
   }
 
-  public ConfigPlantGroup(Integer id) {
+  public ConfigMapPlantGroup(Integer id) {
     this.id = id;
   }
-
 
 }
 

@@ -139,6 +139,7 @@ public class CommunityFarmDetails extends AbstractEntity implements Serializable
   public FarmDTO toDTO(){
     FarmDTO farmDTO = new FarmDTO();
     farmDTO.setFarmId(this.farmid);
+    farmDTO.setVillageId(this.vlgid);
     return farmDTO;
   }
 

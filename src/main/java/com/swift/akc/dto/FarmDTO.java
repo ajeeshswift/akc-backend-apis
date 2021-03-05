@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class FarmDTO {
 private int farmId;
+private int villageId;
 }
