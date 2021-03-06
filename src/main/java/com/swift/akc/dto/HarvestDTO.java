@@ -10,6 +10,8 @@ public class HarvestDTO {
 
 //  private int projectId;
 //  private Date entryDate;
+  private String farmName;
+  private String VillName;
   private int floraId;
   private String floraName;
   private Date sowingDate;          //com_farm_flora_start
