@@ -86,7 +86,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
        communityFarmFloraStart.setIssueSize(harvestModel.getSapQuantity());
        communityFarmFloraStart.setUid(AppContext.getAdmin().getId());
        //communityFarmFloraStart.setEntryDate(new Date());
-       communityFarmFloraStart.setVlgid(harvestModel.getVillageId());
+       communityFarmFloraStart.setVlgid(1);
        communityFarmFloraStart.setProjectId(1);
        return communityFarmFloraStart;
   }

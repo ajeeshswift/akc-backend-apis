@@ -13,8 +13,8 @@ public class HarvestModel {
 
 //  private int projectId;
  private int farmId;
- private int plantGroupId;
- private int villageId;
+ //private int plantGroupId;
+ //private int villageId;
 //  private Date entryDate;
   private int floraId;
   private Date sowingDate;
