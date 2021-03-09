@@ -1,8 +1,10 @@
 package com.swift.akc.service;
 
+import com.swift.akc.dto.HarvestForecastingDTO;
 import com.swift.akc.entity.CommunityHarvestForecasting;
 import com.swift.akc.model.HarvestForcastingModel;
 import com.swift.akc.repository.CommunityHarvestForecastingRepository;
+import com.swift.akc.repository.CommunityHarvestForecastingRepositoryCustom;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,10 @@ public class HarvestForcastingServiceImpl implements HarvestForcastingService {
     @Override
     public List<CommunityHarvestForecasting> getHarvestForeCasting(){
         return communityHarvestForecastingRepository.findAll();
+    }
+
+    @Override
+    public List<HarvestForecastingDTO> fetchAllHarvestForecastingDetails(){
+        return this.communityHarvestForecastingRepository.findAllHarvestForecastingDetails();
     }
 }

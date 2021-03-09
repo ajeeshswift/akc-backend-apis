@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class HarvestForcastingController {
     private final HarvestForcastingService harvestForcastingService;
 
-    @GetMapping("/harvestForcastingDetails")
+    @GetMapping("/harvestForcastingList")
     public ResponseListDTO getHarvestForeCasting(){
     final ResponseListDTO responseListDTO = new ResponseListDTO();
-    responseListDTO.setData(CommunityHarvestForecasting.toDTOList(harvestForcastingService.getHarvestForeCasting()));
+    responseListDTO.setData(harvestForcastingService.fetchAllHarvestForecastingDetails());
     return responseListDTO;
     }
 
