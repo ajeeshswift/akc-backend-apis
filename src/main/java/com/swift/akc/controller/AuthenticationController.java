@@ -23,13 +23,9 @@ public class AuthenticationController {
   public AdminDTO validation(@RequestBody AuthenticationModel authenticationModel){
     AdminDTO adminDTO = new AdminDTO();
     Admin admin = authenticationService.userValidation(authenticationModel);
-System.out.println("admin :"+admin);
-
     String token = SecurityUtils.base64Encode(admin.getId());
-System.out.println("token :"+token);
     adminDTO.setUserName(admin.getName());
     adminDTO.setToken(token);
-System.out.println("adminDTO :"+adminDTO);
     return adminDTO;
   }
 

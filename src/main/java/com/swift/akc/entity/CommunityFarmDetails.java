@@ -1,7 +1,6 @@
 package com.swift.akc.entity;
 
 import com.swift.akc.dto.FarmDTO;
-import com.swift.akc.dto.VillageDTO;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
