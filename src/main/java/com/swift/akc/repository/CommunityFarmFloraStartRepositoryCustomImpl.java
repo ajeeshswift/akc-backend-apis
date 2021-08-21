@@ -19,7 +19,7 @@ public class CommunityFarmFloraStartRepositoryCustomImpl implements CommunityFar
 
   @Override
   public List<HarvestDTO> findAllHarvestVisitDetails() {
-    String query = "select d.farm_name farmerName,e.name VillName,a.plant_id floraId,c.flora  floraName,a.issue_dt issueDate ,a.issue_size issueSize,b.harvest_date harvestDate,b.harvest_quantity harvestQty,b.own_use ownUse,b.sold_quantity soldQty,b.sold_rate soldRate,b.sold_income totalIncome from com_farm_flora_start a,com_farm_flora_hvst b,com_flora c,com_farm_details d,rec_config_ad_village e where a.flora_st_id = b.flora_st_id and a.plant_id = c.id and a.Farm_id = d.Farm_id and d.Vlg_id = e.id";
+    String query = "select d.farm_name farmerName,e.name VillName,a.plant_id floraId,c.flora  floraName,a.issue_dt issueDate ,a.issue_size issueSize,b.harvest_date harvestDate,b.harvest_quantity harvestQty,b.own_use ownUse,b.sold_quantity soldQty,b.sold_rate soldRate,b.sold_income totalIncome from com_farm_flora_start a,com_farm_flora_hvst b,com_flora c,com_farm_details d,rec_config_ad_village e where a.flora_st_id = b.flora_st_id and a.plant_id = c.id and a.Farm_id = d.Farm_id and d.Vlg_id = e.id AND YEAR(a.issue_dt)=YEAR(CURRENT_DATE)";
     return jdbcTemplate.query(query, new HarvestVisitRowMapper());
   }
 

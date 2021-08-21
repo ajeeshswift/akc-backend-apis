@@ -1,5 +1,7 @@
 package com.swift.akc.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,6 +29,7 @@ import lombok.Setter;
 @Table(name = "com_flora")
 @Getter
 @Setter
+
 public class CommunityFlora extends AbstractEntity implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -41,14 +44,18 @@ public class CommunityFlora extends AbstractEntity implements Serializable {
   private Boolean active;
   @Column(name = "uid")
   private Short uid;
+
   @Column(name = "dtm")
   @Temporal(TemporalType.TIMESTAMP)
   private Date dtm;
+
   @Column(name = "euid")
   private Short euid;
+
   @Column(name = "edtm")
   @Temporal(TemporalType.TIMESTAMP)
   private Date edtm;
+
   @Column(name = "is_mapped")
   private Integer isMapped;
 

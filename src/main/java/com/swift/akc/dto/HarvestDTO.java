@@ -3,15 +3,17 @@ package com.swift.akc.dto;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class HarvestDTO {
 
 //  private int projectId;
 //  private Date entryDate;
   private String farmName;
-  private String VillName;
+  private String villName;
   private int floraId;
   private String floraName;
   private Date sowingDate;          //com_farm_flora_start

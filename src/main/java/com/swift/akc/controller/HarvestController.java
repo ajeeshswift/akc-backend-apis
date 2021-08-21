@@ -5,6 +5,7 @@ import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.dto.ResponseListDTO;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
+import com.swift.akc.entity.Test;
 import com.swift.akc.model.HarvestModel;
 import com.swift.akc.service.HarvestService;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +42,23 @@ public class HarvestController {
         final ResponseListDTO responseListDTO = new ResponseListDTO();
         responseListDTO.setData(harvestService.fetchAllHarvestFarmDetails());
         return responseListDTO;
+    }
+
+
+    @GetMapping("/farmVillageList")
+    public ResponseListDTO getFarmAndVillageDetails(){
+        final ResponseListDTO responseListDTO = new ResponseListDTO();
+        responseListDTO.setData(harvestService.fetchAllFarmAndVillageDetails());
+        return responseListDTO;
+    }
+
+
+
+
+
+
+    @PostMapping("/TestEntry")
+    public void  Save(){
+        Test test = harvestService.saveTestDetails();
     }
 }
