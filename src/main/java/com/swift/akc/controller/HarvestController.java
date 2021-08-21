@@ -5,21 +5,16 @@ import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.dto.ResponseListDTO;
 import com.swift.akc.entity.CommunityFarmFloraHarvest;
 import com.swift.akc.entity.CommunityFarmFloraStart;
-import com.swift.akc.entity.Village;
-import com.swift.akc.exceptions.NotFoundException;
+import com.swift.akc.entity.Test;
 import com.swift.akc.model.HarvestModel;
 import com.swift.akc.service.HarvestService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -47,5 +42,23 @@ public class HarvestController {
         final ResponseListDTO responseListDTO = new ResponseListDTO();
         responseListDTO.setData(harvestService.fetchAllHarvestFarmDetails());
         return responseListDTO;
+    }
+
+
+    @GetMapping("/farmVillageList")
+    public ResponseListDTO getFarmAndVillageDetails(){
+        final ResponseListDTO responseListDTO = new ResponseListDTO();
+        responseListDTO.setData(harvestService.fetchAllFarmAndVillageDetails());
+        return responseListDTO;
+    }
+
+
+
+
+
+
+    @PostMapping("/TestEntry")
+    public void  Save(){
+        Test test = harvestService.saveTestDetails();
     }
 }

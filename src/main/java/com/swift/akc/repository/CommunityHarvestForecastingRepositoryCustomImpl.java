@@ -19,7 +19,7 @@ public class CommunityHarvestForecastingRepositoryCustomImpl implements Communit
 
     @Override
     public List<HarvestForecastingDTO> findAllHarvestForecastingDetails() {
-        String query = "SELECT a2.farm_name farmerName,a3.name villName,a4.flora floraName,a1.seeds seeds,a1.area areaUnderCul,a1.crop_showing_date sowingDate FROM com_hvst_forecasting a1,com_farm_details a2,rec_config_ad_village a3,com_flora a4 WHERE a1.farm_id = a2.Farm_id AND a2.Vlg_id = a3.id AND a1.plant_id = a4.id";
+        String query = "SELECT a2.farm_name farmerName,a3.name villName,a4.flora floraName,a1.seeds seeds,a1.area areaUnderCul,a1.crop_showing_date sowingDate FROM com_hvst_forecasting a1,com_farm_details a2,rec_config_ad_village a3,com_flora a4 WHERE a1.farm_id = a2.Farm_id AND a2.Vlg_id = a3.id AND a1.plant_id = a4.id ";
         return jdbcTemplate.query(query, new HarvestForecastingRowMapper());
     }
 
