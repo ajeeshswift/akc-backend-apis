@@ -11,7 +11,7 @@ import java.util.Date;
 public class HarvestForecastingDTO {
     private int id;
     private double area;
-    private Date crop_showing_date;
+    private String crop_showing_date;
     private Date date;
     private int farm_id;
     private int plant_id;

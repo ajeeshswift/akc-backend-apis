@@ -5,6 +5,7 @@ import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.model.HarvestModel;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -78,16 +79,16 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
   public static CommunityFarmFloraStart toEntity(HarvestModel harvestModel) {
 
     final CommunityFarmFloraStart communityFarmFloraStart = new CommunityFarmFloraStart();
-
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     communityFarmFloraStart.setFarmid(harvestModel.getFarmId());
     communityFarmFloraStart.setPlantId(harvestModel.getFloraId());
     communityFarmFloraStart.setIssueDt(harvestModel.getSowingDate());
     communityFarmFloraStart.setIssueBy("0");
     communityFarmFloraStart.setIssueSize(harvestModel.getSapQuantity());
-
     //System.out.println("UID :"+AppContext.getAdmin().getId());
     communityFarmFloraStart.setUid(1);
-    //communityFarmFloraStart.setEntryDate(new Date());
+    communityFarmFloraStart.setEntryDate(new Date());
+    communityFarmFloraStart.setDtm(timestamp);
     communityFarmFloraStart.setVlgid(1);
     communityFarmFloraStart.setProjectId(1);
     return communityFarmFloraStart;
@@ -99,9 +100,9 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
     harvestDTO.setFloraId(this.floraStId);
 //    harvestDTO.setProjectId(this.projectId);
 //    harvestDTO.setEntryDate(this.entryDate);
-    harvestDTO.setSowingDate(this.issueDt);
+    harvestDTO.setSowingDate(this.issueDt.toString());
     harvestDTO.setSapQuantity(this.issueSize);
-    harvestDTO.setHarvestDate(communityFarmFloraHarvest.getHarvestDate());
+    harvestDTO.setHarvestDate(communityFarmFloraHarvest.getHarvestDate().toString());
     harvestDTO.setHarvestQuantity(communityFarmFloraHarvest.getHarvestQuantity());
     harvestDTO.setOwnUseQuantity(communityFarmFloraHarvest.getOwnUse());
     harvestDTO.setSoldQuantity(communityFarmFloraHarvest.getSoldQuantity());

@@ -3,6 +3,7 @@ package com.swift.akc.entity;
 import com.swift.akc.dto.HarvestDTO;
 import com.swift.akc.model.HarvestModel;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -77,6 +78,7 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
 
   public static CommunityFarmFloraHarvest toEntity(int floraId,HarvestModel harvestModel){
     final CommunityFarmFloraHarvest communityFarmFloraHarvest = new CommunityFarmFloraHarvest();
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     communityFarmFloraHarvest.setFloraStId(floraId);
     communityFarmFloraHarvest.setHarvestMethod("0");
     communityFarmFloraHarvest.setHarvestDate(harvestModel.getHarvestDate());
@@ -85,6 +87,7 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
     communityFarmFloraHarvest.setSoldQuantity(harvestModel.getSoldQuantity());
     communityFarmFloraHarvest.setSoldRate(harvestModel.getSoldRate());
     communityFarmFloraHarvest.setSoldIncome(harvestModel.getTotalIncome());
+    communityFarmFloraHarvest.setDtm(timestamp);
 //    communityFarmFloraHarvest.setPlantSeed(harvestModel.getFloraType());
 //    communityFarmFloraHarvest.setPlantSeedUnit(harvestModel.getFloraWeight());
     return communityFarmFloraHarvest;
@@ -94,7 +97,7 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
 
   public HarvestDTO toDTO() {
     HarvestDTO harvestDTO = new HarvestDTO();
-    harvestDTO.setHarvestDate(new Date());
+    harvestDTO.setHarvestDate(new Date().toString());
     harvestDTO.setHarvestQuantity(this.getHarvestQuantity());
     harvestDTO.setOwnUseQuantity(this.getOwnUse());
     harvestDTO.setSoldQuantity(this.getSoldQuantity());

@@ -16,9 +16,9 @@ public class HarvestDTO {
   private String villName;
   private int floraId;
   private String floraName;
-  private Date sowingDate;          //com_farm_flora_start
+  private String sowingDate;          //com_farm_flora_start
   private String sapQuantity;       //com_farm_flora_start
-  private Date harvestDate;         //com_farm_flora_hvst
+  private String harvestDate;         //com_farm_flora_hvst
   private String harvestQuantity;   //com_farm_flora_hvst
   private String ownUseQuantity;    //com_farm_flora_hvst
   private String soldQuantity;      //com_farm_flora_hvst

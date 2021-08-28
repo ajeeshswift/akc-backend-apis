@@ -97,7 +97,7 @@ public class CommunityHarvestForecasting extends AbstractEntity implements Seria
         HarvestForecastingDTO harvestForecastingDTO = new HarvestForecastingDTO();
         harvestForecastingDTO.setId(this.id);
         harvestForecastingDTO.setArea(this.area);
-        harvestForecastingDTO.setCrop_showing_date(this.cropShowingDate);
+        harvestForecastingDTO.setCrop_showing_date(this.cropShowingDate.toString());
         harvestForecastingDTO.setDate(this.date);
         harvestForecastingDTO.setFarm_id(this.farmId);
         harvestForecastingDTO.setPlant_id(this.plantId);
