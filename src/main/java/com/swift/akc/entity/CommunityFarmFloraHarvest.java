@@ -97,7 +97,7 @@ public class CommunityFarmFloraHarvest extends AbstractEntity implements Seriali
 
   public HarvestDTO toDTO() {
     HarvestDTO harvestDTO = new HarvestDTO();
-    harvestDTO.setHarvestDate(new Date().toString());
+    harvestDTO.setHarvestDate(new Date());
     harvestDTO.setHarvestQuantity(this.getHarvestQuantity());
     harvestDTO.setOwnUseQuantity(this.getOwnUse());
     harvestDTO.setSoldQuantity(this.getSoldQuantity());

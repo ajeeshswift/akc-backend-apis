@@ -19,7 +19,7 @@ public class CommunityFarmFloraStartRepositoryCustomImpl implements CommunityFar
 
   @Override
   public List<HarvestDTO> findAllHarvestVisitDetails() {
-    String query = "select d.farm_name farmerName,e.name VillName,a.plant_id floraId,c.flora  floraName,date_format(a.issue_dt,'%d-%m-%Y') issueDate ,a.issue_size issueSize,date_format(b.harvest_date,'%d-%m-%Y') harvestDate,b.harvest_quantity harvestQty,b.own_use ownUse,b.sold_quantity soldQty,b.sold_rate soldRate,b.sold_income totalIncome from com_farm_flora_start a,com_farm_flora_hvst b,com_flora c,com_farm_details d,rec_config_ad_village e where a.flora_st_id = b.flora_st_id and a.plant_id = c.id and a.Farm_id = d.Farm_id and d.Vlg_id = e.id AND YEAR(a.dtm)=YEAR(CURRENT_DATE) order by a.dtm";
+    String query = "select d.farm_name farmerName,e.name VillName,a.plant_id floraId,c.flora  floraName,a.issue_dt issueDate ,a.issue_size issueSize,b.harvest_date harvestDate,b.harvest_quantity harvestQty,b.own_use ownUse,b.sold_quantity soldQty,b.sold_rate soldRate,b.sold_income totalIncome from com_farm_flora_start a,com_farm_flora_hvst b,com_flora c,com_farm_details d,rec_config_ad_village e where a.flora_st_id = b.flora_st_id and a.plant_id = c.id and a.Farm_id = d.Farm_id and d.Vlg_id = e.id AND YEAR(a.dtm)=YEAR(CURRENT_DATE) order by a.dtm";
     return jdbcTemplate.query(query, new HarvestVisitRowMapper());
   }
 
@@ -32,9 +32,9 @@ public class CommunityFarmFloraStartRepositoryCustomImpl implements CommunityFar
       harvestDTO.setVillName(resultSet.getString("villName"));
       harvestDTO.setFloraId(resultSet.getInt("floraId"));
       harvestDTO.setFloraName(resultSet.getString("floraName"));
-      harvestDTO.setSowingDate(resultSet.getString("issueDate"));
+      harvestDTO.setSowingDate(resultSet.getDate("issueDate"));
       harvestDTO.setSapQuantity(resultSet.getString("issueSize"));
-      harvestDTO.setHarvestDate(resultSet.getString("harvestDate"));
+      harvestDTO.setHarvestDate(resultSet.getDate("harvestDate"));
       harvestDTO.setHarvestQuantity(resultSet.getString("harvestQty"));
       harvestDTO.setOwnUseQuantity(resultSet.getString("ownUse"));
       harvestDTO.setSoldQuantity(resultSet.getString("soldQty"));

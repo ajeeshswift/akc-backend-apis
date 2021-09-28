@@ -90,7 +90,7 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
     communityFarmFloraStart.setEntryDate(new Date());
     communityFarmFloraStart.setDtm(timestamp);
     communityFarmFloraStart.setVlgid(1);
-    communityFarmFloraStart.setProjectId(1);
+    communityFarmFloraStart.setProjectId(harvestModel.getProjectId());
     return communityFarmFloraStart;
   }
 
@@ -98,11 +98,11 @@ public class CommunityFarmFloraStart extends AbstractEntity implements Serializa
   public HarvestDTO toDTO(CommunityFarmFloraHarvest communityFarmFloraHarvest) {
     HarvestDTO harvestDTO = new HarvestDTO();
     harvestDTO.setFloraId(this.floraStId);
-//    harvestDTO.setProjectId(this.projectId);
+    harvestDTO.setProjectId(this.projectId);
 //    harvestDTO.setEntryDate(this.entryDate);
-    harvestDTO.setSowingDate(this.issueDt.toString());
+    harvestDTO.setSowingDate(this.issueDt);
     harvestDTO.setSapQuantity(this.issueSize);
-    harvestDTO.setHarvestDate(communityFarmFloraHarvest.getHarvestDate().toString());
+    harvestDTO.setHarvestDate(communityFarmFloraHarvest.getHarvestDate());
     harvestDTO.setHarvestQuantity(communityFarmFloraHarvest.getHarvestQuantity());
     harvestDTO.setOwnUseQuantity(communityFarmFloraHarvest.getOwnUse());
     harvestDTO.setSoldQuantity(communityFarmFloraHarvest.getSoldQuantity());

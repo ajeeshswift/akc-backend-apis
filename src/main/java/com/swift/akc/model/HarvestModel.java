@@ -11,8 +11,8 @@ public class HarvestModel {
 //  private CommunityFarmFloraStartModel communityFarmFloraStartModel;
 //  private CommunityFarmFloraHarvestModel communityFarmFloraHarvestModel;
 
-//  private int projectId;
- private int farmId;
+  private int projectId;
+  private int farmId;
  //private int plantGroupId;
  //private int villageId;
 //  private Date entryDate;
